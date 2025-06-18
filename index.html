@@ -207,6 +207,34 @@
         #backToTopBtn {
             transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
         }
+        
+        
+  
+  .shine-border {
+  position: relative;
+  border-radius: 1rem;
+  padding: 3px; /* This exposes a 3px border */
+  background: linear-gradient(120deg, #ec4899, #8b5cf6, #ec4899);
+  background-size: 300% 300%;
+  animation: shineAnim 3s linear infinite;
+  display: inline-block; /* important to keep border tight */
+}
+
+@keyframes shineAnim {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.shine-border > div {
+  border-radius: inherit;
+  background-color: white; /* or dark:bg-slate-800 in dark mode */
+  width: 100%;
+  height: 100%;
+}
+
+        
+        
     </style>
 <script type="importmap">
 {
@@ -233,17 +261,23 @@
 <body class="bg-white dark:bg-slate-900 text-gray-800 dark:text-white">
 
     <!-- Navigation Bar -->
-    <header class="w-full bg-white shadow-sm border-b border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+<header class="w-full bg-white shadow-sm border-b border-gray-100 dark:bg-gray-800 dark:border-gray-700 py-4">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 
                 
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <img src="https://bucket.mlcdn.com/a/3336/3336910/images/77b4ddd5286b40d39dcf005201ac0ae3852b5425.png" 
-                         alt="Market Research Hub Logo" 
-                         class="h-8">
-                </div>
+                 <div class="flex-shrink-0 flex items-center">
+                <!-- Light mode logo (visible by default) -->
+                <img src="https://bucket.mlcdn.com/a/3336/3336910/images/77b4ddd5286b40d39dcf005201ac0ae3852b5425.png" 
+                     alt="Market Research Hub Logo" 
+                     class="h-8 block dark:hidden">
+                
+                <!-- Dark mode logo (hidden by default, shown in dark mode) -->
+                <img src="https://bucket.mlcdn.com/a/3336/3336910/images/b3eda45b2e78a6c25c845210560818d5288a8784.png" 
+                     alt="Market Research Hub Logo" 
+                     class="h-8 hidden dark:block">
+            </div>
                 
                 
                 
@@ -257,6 +291,11 @@
                     <a href="#faq" class="text-gray-700 hover:text-pink-600 dark:text-gray-300 dark:hover:text-pink-500 font-medium">FAQ</a>
                     <a href="#pricing" class="text-gray-700 hover:text-pink-600 dark:text-gray-300 dark:hover:text-pink-500 font-medium">Pricing</a>
                 </nav>
+                
+                
+                
+                
+                
                 
                 <!-- Theme Toggle and Login Button -->
                 <div class="flex items-center">
@@ -272,6 +311,13 @@
             </div>
         </div>
     </header>
+    
+    
+    
+    
+    
+    
+    
 
     <!-- Hero Section -->
     <section class="hero-gradient pt-28 md:pt-32 pb-20">
@@ -291,7 +337,7 @@
                         Get Started Today
                         <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
                     </a>
-                    <a href="#features" class="bg-white text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 font-medium py-4 px-8 rounded-full border border-gray-200 dark:border-gray-600 text-lg inline-flex items-center justify-center hover:shadow-md transition-shadow">
+                    <a href="#Demo" class="bg-white text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 font-medium py-4 px-8 rounded-full border border-gray-200 dark:border-gray-600 text-lg inline-flex items-center justify-center hover:shadow-md transition-shadow">
                         <i data-lucide="play-circle" class="mr-2 w-5 h-5"></i>
                         Watch Demo
                     </a>
@@ -582,6 +628,9 @@
     
     
     
+    
+    
+    
   <!-- Quote Banner --> <!-- Removed mt-16 -->
     <div class="bg-gradient-to-r from-pink-600 to-purple-600 py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-5xl mx-auto text-center">
@@ -675,70 +724,82 @@
         </div>
     </section>
     
-    <!-- CTA Section -->
-    <section id="pricing" class="py-20 bg-gradient-to-br from-pink-50 to-purple-50 dark:from-slate-800 dark:to-pink-900/10">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-6">
-                Ready to Transform Your Market Research?
-            </h2>
-            <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-10">
-                Join thousands of successful businesses that use Market Research Hub to make data-driven decisions and accelerate growth.
-            </p>
-            
-            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 inline-block max-w-lg w-full">
-                <div class="mb-8">
-                    <div class="text-5xl font-bold text-pink-600 dark:text-pink-500 mb-2">$97</div>
-                    <div class="text-gray-600 dark:text-gray-400">one-time payment <span class="ml-1 text-xs bg-pink-600 text-white dark:bg-pink-500 dark:text-gray-900 font-semibold px-2 py-0.5 rounded-md align-middle">LIFETIME DEAL</span></div>
-                </div>
-                
-                <ul class="space-y-4 mb-10 text-left text-gray-700 dark:text-gray-300">
-                    <li class="flex items-start">
-                        <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 dark:text-green-400 mr-3 mt-0.5 flex-shrink-0"></i>
-                        <span>Full access to all research tools</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 dark:text-green-400 mr-3 mt-0.5 flex-shrink-0"></i>
-                        <span>Structured 8-week research process</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 dark:text-green-400 mr-3 mt-0.5 flex-shrink-0"></i>
-                        <span>Notion research templates</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 dark:text-green-400 mr-3 mt-0.5 flex-shrink-0"></i>
-                        <span>Priority customer support</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 dark:text-green-400 mr-3 mt-0.5 flex-shrink-0"></i>
-                        <span>Lifetime updates</span>
-                    </li>
-                </ul>
-                
-                <a href="#" class="cta-button text-white font-bold py-4 px-8 rounded-full text-lg inline-block w-full">
-                    Get Instant Access
-                </a>
-                
-                <div class="mt-6 text-gray-500 dark:text-gray-400 text-sm">
-                    30-day money-back guarantee • Secure payment
-                </div>
-                <div class="flex justify-center items-center space-x-3 mt-4 text-gray-500 dark:text-gray-400">
-                    <span class="text-xs font-medium">Pay with:</span>
-                    <i data-lucide="credit-card" class="w-6 h-6" aria-label="Credit Card"></i>
-                    <i data-lucide="landmark" class="w-6 h-6" aria-label="Bank Transfer"></i>
-                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="h-5 w-auto fill-current" aria-label="Paypal"><title>PayPal</title><path d="M7.076 21.337H2.478L.002 3.048h5.153l1.22 10.057c.01.07.028.14.053.218.036.107.078.216.132.326.136.273.304.515.524.718.22.198.48.356.79.467.31.102.65.157 1.023.157.838 0 1.57-.168 2.19-.506.62-.337 1.085-.803 1.395-1.39.186-.35.29-.72.31-1.104.01-.102.015-.203.015-.304l-.69-4.833-.173-1.221L12.79.001H7.31l-.014 2.153.008.004c.004.004.006.008.008.012l.003.004L7.076 21.337zm16.924-10.05c0-.12-.016-.23-.04-.33-.023-.1-.053-.193-.09-.28-.037-.088-.08-.17-.132-.248-.052-.077-.107-.145-.167-.203-.06-.058-.124-.105-.192-.143a1.92 1.92 0 0 0-.226-.088c-.084-.023-.17-.038-.258-.045a2.536 2.536 0 0 0-.29-.015h-2.45l-.71 5.087c-.07.477-.135.858-.196 1.142-.06.284-.117.498-.17.642-.053.145-.1.246-.136.304-.037.058-.063.088-.08.088-.096 0-.177-.03-.243-.09-.065-.06-.117-.145-.152-.25-.036-.108-.058-.23-.062-.36l.662-4.666.15-1.075.158-1.127L19.048 3.05H13.91l-1.36 9.653c0 .06.002.115.007.165a.69.69 0 0 1 .01.12c.003.04.008.077.015.11.008.033.018.06.03.082.012.023.028.04.048.052.02.013.043.02.068.02.028 0 .05-.004.068-.01.018-.008.034-.017.048-.03a.29.29 0 0 1 .046-.04c.014-.017.026-.037.035-.06.008-.023.015-.05.018-.08a.987.987 0 0 1 .028-.152l.74-5.23H22.19c.113 0 .21.003.29.01.08.004.15.013.212.023.064.01.117.02.162.03s.08.02.106.03c.026.01.046.02.06.028.015.01.023.015.023.015.234.08.43.203.587.368.157.165.27.36.34.584.07.225.106.464.106.718 0 .2-.023.38-.07.54-.046.16-.11.306-.19.435-.08.13-.174.24-.282.33-.108.09-.228.16-.36.21-.132.05-.27.08-.412.09-.142.01-.28.015-.412.015h-1.052l.412 2.923c.036.265.078.503.126.715.048.212.11.404.187.575.078.17.174.315.29.432.115.118.248.21.398.275.15.065.314.1.49.1.13 0 .248-.012.352-.037s.196-.06.276-.102c.08-.044.15-.095.212-.153.062-.058.117-.126.162-.204l.06-.102.324-2.298c.003-.024.01-.05.02-.08.008-.03.02-.06.03-.09.015-.03.03-.055.044-.075.016-.02.03-.037.042-.05.014-.013.028-.02.042-.023.014-.004.028-.004.042-.004h2.526Z"/></svg>
-                </div>
-            </div>
+    
+    
+    
+    
+    
+    
+   <!-- CTA Section -->
+<section id="pricing" class="py-20 bg-gradient-to-br from-pink-50 to-purple-50 dark:from-slate-800 dark:to-pink-900/10">
+
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+      Ready to Transform Your Market Research?
+    </h2>
+
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-10">
+      Join thousands of successful businesses that use Market Research Hub to make data-driven decisions and accelerate growth.
+    </p>
+
+    <div class="shine-border rounded-2xl p-[3px] inline-block">
+      <div class="bg-white dark:bg-slate-800 rounded-[inherit] shadow-xl p-8 max-w-lg w-full">
+        
+        <div class="mb-8">
+          <div class="text-5xl font-bold text-pink-600 dark:text-pink-500 mb-2">$97</div>
+          <div class="text-gray-600 dark:text-gray-400">
+            one-time payment 
+            <span class="ml-1 text-xs bg-pink-600 text-white font-semibold px-2 py-0.5 rounded-md align-middle">LIFETIME DEAL</span>
+          </div>
         </div>
-    </section>
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+        <ul class="space-y-4 mb-10 text-left text-gray-700 dark:text-gray-300">
+          <li class="flex items-start">
+            <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 dark:text-green-400 mr-3 mt-0.5 flex-shrink-0"></i>
+            <span>Full access to all research tools</span>
+          </li>
+          <li class="flex items-start">
+            <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 dark:text-green-400 mr-3 mt-0.5 flex-shrink-0"></i>
+            <span>Structured 8-week research process</span>
+          </li>
+          <li class="flex items-start">
+            <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 dark:text-green-400 mr-3 mt-0.5 flex-shrink-0"></i>
+            <span>Notion research templates</span>
+          </li>
+          <li class="flex items-start">
+            <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 dark:text-green-400 mr-3 mt-0.5 flex-shrink-0"></i>
+            <span>Priority customer support</span>
+          </li>
+          <li class="flex items-start">
+            <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 dark:text-green-400 mr-3 mt-0.5 flex-shrink-0"></i>
+            <span>Lifetime updates</span>
+          </li>
+        </ul>
+
+        <a href="#" class="cta-button text-white font-bold py-4 px-8 rounded-full text-lg inline-block w-full">
+          Get Instant Access
+        </a>
+
+        <div class="mt-6 text-gray-500 dark:text-gray-400 text-sm">
+          30-day money-back guarantee • Secure payment
+        </div>
+
+          
+         <div class="flex justify-center items-center space-x-4 mt-4">
+  <span class="text-xs font-medium text-gray-500 dark:text-gray-400">Pay with:</span>
+  <img src="/assets/icons/visa.svg" alt="Visa" class="h-6 w-auto">
+  <img src="/assets/icons/mastercard.svg" alt="Mastercard" class="h-6 w-auto">
+  <img src="/assets/icons/paypal.svg" alt="PayPal" class="h-6 w-auto">
+</div>
+          
+              
+          
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
     
     
     
@@ -784,11 +845,33 @@
         </div>
     </footer>
 
+
+
+
+
+
+
+
+    
+
     <!-- Back to Top Button -->
     <button id="backToTopBtn" aria-label="Back to top" title="Back to top"
             class="fixed bottom-5 right-5 cta-button text-white p-3 rounded-full shadow-lg opacity-0 invisible z-50">
         <i data-lucide="arrow-up" class="w-6 h-6"></i>
     </button>
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     <script>
         function toggleFAQ(faqNumber) {
