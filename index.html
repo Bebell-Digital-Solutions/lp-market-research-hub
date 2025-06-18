@@ -1,0 +1,951 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Research Hub | Complete Guide to Market Success</title>
+    
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Caveat:wght@500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Add this with your other scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script src="//unpkg.com/alpinejs" defer></script>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Enable dark mode using a class
+            theme: {
+                extend: {
+                    colors: {
+                        pink: {
+                            600: '#DF1783',
+                            700: '#C1146E'
+                        },
+                        purple: { // Added purple for consistency if needed
+                            600: '#7C3AED'
+                        }
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                        caveat: ['Caveat', 'cursive'],
+                    },
+                },
+            },
+        };
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    
+    <style>
+        :root {
+            --pink-600: #DF1783;
+            --pink-700: #C1146E;
+            --purple-600: #7C3AED;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to bottom, #ffffff, #f9fafb);
+            color: #1f2937;
+        }
+        .dark body {
+            background: linear-gradient(to bottom, #111827, #0f172a); /* Dark gradient */
+            color: #d1d5db; /* Default dark text color */
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #fdf2f8, #f5f3ff);
+        }
+        .dark .hero-gradient {
+            background: linear-gradient(135deg, #372834, #2c2a3e); /* Darker hero gradient */
+        }
+        
+        
+        
+        
+        .feature-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+        .dark .feature-card {
+            border-color: #374151; /* Dark border for feature cards */
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .dark .feature-card:hover {
+            box-shadow: 0 20px 25px -5px rgba(223, 23, 131, 0.1), 0 10px 10px -5px rgba(223, 23, 131, 0.05); /* Adjusted shadow for dark */
+        }
+        
+        
+        
+        
+        
+        /* Adjust the timeline marker positioning */
+        .timeline-marker {
+            position: absolute;
+            left: 2px;
+            top: 1.5rem;
+            width: 0.75rem;
+            height: 0.75rem;
+            border-radius: 9999px;
+            background: #DF1783;
+            border: 4px solid #f8fafc; /* Light theme background */
+            box-sizing: content-box;
+            transform: translateX(-50%);
+        }
+        
+        
+        
+        .dark .timeline-marker {
+            background: #EC4899; /* Brighter pink for dark mode */
+            border-color: #1f2937; /* Dark theme section background (adjust if section bg changes) */
+        
+        }
+
+        @media (min-width: 640px) {
+            .timeline-marker {
+                left: 6.5rem;
+            }
+        }
+
+        /* Adjust the timeline line */
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            height: 100%;
+            width: 1px;
+            background: #e2e8f0; /* Light theme line */
+            transform: translateX(-50%);
+        }
+        
+        
+        .dark .timeline-item:before {
+            background: #4b5563; /* Dark theme line */
+        }
+
+        @media (min-width: 640px) {
+            .timeline-item:before {
+                left: 6.5rem;
+            }
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .dark .faq-item {
+            border-color: #374151; /* Dark border for FAQ items */
+        }
+        
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-content.active {
+            max-height: 500px;
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+       
+       
+       
+       .dark .video-container {
+             box-shadow: 0 20px 25px -5px rgba(223, 23, 131, 0.1), 0 10px 10px -5px rgba(223, 23, 131, 0.05);
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, var(--pink-600), var(--purple-600));
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(223, 23, 131, 0.3), 0 4px 6px -2px rgba(223, 23, 131, 0.1);
+        }
+        .dark .cta-button:hover {
+             box-shadow: 0 10px 15px -3px rgba(223, 23, 131, 0.5), 0 4px 6px -2px rgba(223, 23, 131, 0.2);
+        }
+
+        #backToTopBtn {
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/"
+  }
+}
+</script>
+<script>
+    // Minimal script to set theme ASAP to prevent FOUC
+    (function() {
+        const theme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (theme === 'dark' || (!theme && systemPrefersDark)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    })();
+</script>
+</head>
+
+
+<body class="bg-white dark:bg-slate-900 text-gray-800 dark:text-white">
+
+    <!-- Navigation Bar -->
+    <header class="w-full bg-white shadow-sm border-b border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                
+                
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <img src="https://bucket.mlcdn.com/a/3336/3336910/images/77b4ddd5286b40d39dcf005201ac0ae3852b5425.png" 
+                         alt="Market Research Hub Logo" 
+                         class="h-8">
+                </div>
+                
+                
+                
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="text-gray-700 hover:text-pink-600 dark:text-gray-300 dark:hover:text-pink-500 font-medium">Features</a>
+                    <a href="#Demo" class="text-gray-700 hover:text-pink-600 dark:text-gray-300 dark:hover:text-pink-500 font-medium">Demo</a>
+                    
+                    <a href="#process" class="text-gray-700 hover:text-pink-600 dark:text-gray-300 dark:hover:text-pink-500 font-medium">Process</a>
+                    <a href="#faq" class="text-gray-700 hover:text-pink-600 dark:text-gray-300 dark:hover:text-pink-500 font-medium">FAQ</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-pink-600 dark:text-gray-300 dark:hover:text-pink-500 font-medium">Pricing</a>
+                </nav>
+                
+                <!-- Theme Toggle and Login Button -->
+                <div class="flex items-center">
+                     <button id="theme-toggle" type="button" class="mr-2 sm:mr-4 p-2 rounded-full text-gray-500 hover:text-pink-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-pink-500 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500 dark:focus:ring-offset-gray-800" aria-label="Toggle theme">
+                        <i id="theme-toggle-dark-icon" data-lucide="moon" class="w-5 h-5 hidden"></i>
+                        <i id="theme-toggle-light-icon" data-lucide="sun" class="w-5 h-5 hidden"></i>
+                    </button>
+                    <a href="https://research-hub.elnegocio.digital" 
+                       class="cta-button text-white font-medium py-2 px-6 rounded-full text-sm md:text-base">
+                        Member Access
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient pt-28 md:pt-32 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 text-gray-900 dark:text-white">
+                    <span class="block">Master Market Research with</span>
+                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600 mt-2">
+                        Market Research Hub
+                    </span>
+                </h1>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-10">
+                    Your comprehensive dashboard for strategic market analysis, competitive intelligence, and data-driven business decisions.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#pricing" class="cta-button text-white font-bold py-4 px-8 rounded-full text-lg inline-flex items-center justify-center">
+                        Get Started Today
+                        <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+                    </a>
+                    <a href="#features" class="bg-white text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 font-medium py-4 px-8 rounded-full border border-gray-200 dark:border-gray-600 text-lg inline-flex items-center justify-center hover:shadow-md transition-shadow">
+                        <i data-lucide="play-circle" class="mr-2 w-5 h-5"></i>
+                        Watch Demo
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-16 max-w-5xl mx-auto">
+    <div class="bg-white rounded-[28px] shadow-xl overflow-hidden"> <!-- Outer container -->
+        <div class="p-1 bg-gradient-to-r from-pink-600 to-purple-600 rounded-[28px]"> <!-- Gradient border wrapper -->
+            <div class="bg-white p-2 rounded-[24px] overflow-hidden"> <!-- Inner white container -->
+                <img src="https://bucket.mlcdn.com/a/3336/3336910/images/bc7dd1c2c844961fcf6a9a8cf952f81678ae4566.png" 
+                     alt="Market Research Hub Dashboard" 
+                     class="w-full h-auto rounded-[20px]"> <!-- Image --></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    
+    
+    <!-- Key Features -->
+    <section id="features" class="py-20 bg-gray-50 dark:bg-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+                    Everything You Need for <span class="text-pink-600 dark:text-pink-500">Market Mastery</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    Our comprehensive toolkit helps you uncover opportunities, analyze competitors, and validate products with confidence.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-sm">
+                    <div class="w-14 h-14 bg-pink-100 dark:bg-pink-900/30 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="search" class="w-8 h-8 text-pink-600 dark:text-pink-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Market Investigation</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Dive deep into market landscapes, uncover opportunities, and understand customer personas with our comprehensive research tools.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-pink-600 dark:text-pink-500 mt-0.5 mr-2 flex-shrink-0"></i>
+                            <span>Market size and growth analysis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-pink-600 dark:text-pink-500 mt-0.5 mr-2 flex-shrink-0"></i>
+                            <span>Customer segmentation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-pink-600 dark:text-pink-500 mt-0.5 mr-2 flex-shrink-0"></i>
+                            <span>SWOT analysis tools</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-sm">
+                    <div class="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="bar-chart-3" class="w-8 h-8 text-purple-600 dark:text-purple-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Trend Identification</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Discover emerging opportunities and validate demand with our powerful trend analysis tools and data visualization.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-purple-600 dark:text-purple-500 mt-0.5 mr-2 flex-shrink-0"></i>
+                            <span>Real-time trend tracking</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-purple-600 dark:text-purple-500 mt-0.5 mr-2 flex-shrink-0"></i>
+                            <span>Niche opportunity finder</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-purple-600 dark:text-purple-500 mt-0.5 mr-2 flex-shrink-0"></i>
+                            <span>Keyword demand validation</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-sm">
+                    <div class="w-14 h-14 bg-pink-100 dark:bg-pink-900/30 rounded-xl flex items-center justify-center mb-6">
+                        <i data-lucide="lightbulb" class="w-8 h-8 text-pink-600 dark:text-pink-500"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">Competitive Intelligence</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                        Gain the upper hand with detailed competitor analysis, positioning maps, and strategic insights.
+                    </p>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li class="flex items-start">
+                           <i data-lucide="check" class="w-5 h-5 text-pink-600 dark:text-pink-500 mt-0.5 mr-2 flex-shrink-0"></i>
+                            <span>Competitor benchmarking</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-pink-600 dark:text-pink-500 mt-0.5 mr-2 flex-shrink-0"></i>
+                            <span>Pricing strategy analysis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i data-lucide="check" class="w-5 h-5 text-pink-600 dark:text-pink-500 mt-0.5 mr-2 flex-shrink-0"></i>
+                            <span>Market gap identification</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+ <!-- Video Introduction -->
+<section id="Demo" class="pt-24 pb-20 bg-gradient-to-br from-pink-600 to-purple-600 dark:from-pink-800 dark:to-purple-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+                See Our Market Research Hub in Action
+            </h2>
+            <p class="text-xl text-pink-100 max-w-3xl mx-auto">
+                Discover how our platform transforms complex market data into actionable insights in minutes.
+            </p>
+        </div>
+        
+        <div class="max-w-4xl mx-auto">
+            <div class="video-container rounded-lg overflow-hidden shadow-xl">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg">
+                    <div id="countUpTools" class="text-3xl font-bold text-pink-600 dark:text-pink-500 mb-2">22+</div>
+                    <div class="text-gray-700 dark:text-gray-600">Research Tools</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg">
+                    <div id="countUpPhases" class="text-3xl font-bold text-pink-600 dark:text-pink-500 mb-2">5</div>
+                    <div class="text-gray-700 dark:text-gray-600">Research Phases</div>
+                </div>
+                <div class="text-center p-6 bg-white rounded-xl shadow-lg">
+                    <div id="countUpSuccess" class="text-3xl font-bold text-pink-600 dark:text-pink-500 mb-2">98%</div>
+                    <div class="text-gray-700 dark:text-gray-600">Success Rate</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    
+    
+    
+    
+    
+    
+    
+    <!-- Timeline Section -->
+    <section id="process" class="bg-white dark:bg-gray-900"> <!-- Removed pb-20 -->
+                      
+    <!-- "Market Research Timeline" section -->
+    <div class="bg-gray-50 dark:bg-slate-800 p-0 mb-0">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6 text-center pt-20">⏳ Market Research Timeline</h2>
+        <div class="flex justify-center">
+            <div class="w-full max-w-2xl">
+                <div class="space-y-8">
+                    <!-- Phase 1 -->
+                    <div class="relative pl-8 sm:pl-32 py-6 group timeline-item">
+                        <div class="font-caveat font-medium text-2xl text-pink-600 dark:text-pink-400 mb-1 sm:mb-0">Phase 1</div>
+                        <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden">
+                            <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-pink-600 bg-pink-100 dark:text-pink-200 dark:bg-pink-700/50 rounded-full">Week 1-2</time>
+                            <div class="text-xl font-bold text-slate-900 dark:text-slate-100">Market Investigation</div>
+                            <div class="timeline-marker"></div>
+                        </div>
+                        <div class="text-slate-600 dark:text-slate-400">
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>Define your target market and customer personas</li>
+                                <li>Analyze market size and growth potential</li>
+                                <li>Identify key market trends and dynamics</li>
+                                <li>Conduct SWOT analysis of the market</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 2 -->
+                    <div class="relative pl-8 sm:pl-32 py-6 group timeline-item">
+                        <div class="font-caveat font-medium text-2xl text-pink-600 dark:text-pink-400 mb-1 sm:mb-0">Phase 2</div>
+                        <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden">
+                            <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-pink-600 bg-pink-100 dark:text-pink-200 dark:bg-pink-700/50 rounded-full">Week 3-4</time>
+                            <div class="text-xl font-bold text-slate-900 dark:text-slate-100">Trend & Niche Identification</div>
+                            <div class="timeline-marker"></div>
+                        </div>
+                        <div class="text-slate-600 dark:text-slate-400">
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>Identify emerging trends in your industry</li>
+                                <li>Discover profitable niche opportunities</li>
+                                <li>Analyze search trends and social media buzz</li>
+                                <li>Validate demand through keyword research</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 3 -->
+                    <div class="relative pl-8 sm:pl-32 py-6 group timeline-item">
+                        <div class="font-caveat font-medium text-2xl text-pink-600 dark:text-pink-400 mb-1 sm:mb-0">Phase 3</div>
+                        <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden">
+                            <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-pink-600 bg-pink-100 dark:text-pink-200 dark:bg-pink-700/50 rounded-full">Week 5-6</time>
+                            <div class="text-xl font-bold text-slate-900 dark:text-slate-100">Competitive Analysis</div>
+                            <div class="timeline-marker"></div>
+                        </div>
+                        <div class="text-slate-600 dark:text-slate-400">
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>Identify direct and indirect competitors</li>
+                                <li>Analyze competitor strengths and weaknesses</li>
+                                <li>Map competitor pricing and positioning</li>
+                                <li>Identify gaps in the competitive landscape</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 4 -->
+                    <div class="relative pl-8 sm:pl-32 py-6 group timeline-item">
+                        <div class="font-caveat font-medium text-2xl text-pink-600 dark:text-pink-400 mb-1 sm:mb-0">Phase 4</div>
+                        <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden">
+                            <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-pink-600 bg-pink-100 dark:text-pink-200 dark:bg-pink-700/50 rounded-full">Week 7</time>
+                            <div class="text-xl font-bold text-slate-900 dark:text-slate-100">Product Validation</div>
+                            <div class="timeline-marker"></div>
+                        </div>
+                        <div class="text-slate-600 dark:text-slate-400">
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>Validate product-market fit</li>
+                                <li>Test pricing strategies</li>
+                                <li>Gather early customer feedback</li>
+                                <li>Conduct pre-launch surveys</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 5 -->
+                    <div class="relative pl-8 sm:pl-32 py-6 group timeline-item">
+                        <div class="font-caveat font-medium text-2xl text-pink-600 dark:text-pink-400 mb-1 sm:mb-0">Phase 5</div>
+                        <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden">
+                            <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase w-20 h-6 mb-3 sm:mb-0 text-pink-600 bg-pink-100 dark:text-pink-200 dark:bg-pink-700/50 rounded-full">Week 8</time>
+                            <div class="text-xl font-bold text-slate-900 dark:text-slate-100">Advanced Analysis & Strategy</div>
+                            <div class="timeline-marker"></div>
+                        </div>
+                        <div class="text-slate-600 dark:text-slate-400">
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>Compile research findings into actionable insights</li>
+                                <li>Develop go-to-market strategy</li>
+                                <li>Create marketing and positioning recommendations</li>
+                                <li>Finalize research documentation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    
+            <div class="mt-12"> <!-- Spacing above the banner (image) -->
+          <img 
+            src="https://bucket.mlcdn.com/a/3336/3336910/images/0953b807d6a746d122e2ee8054b51fdc0a0aef14.png" 
+            alt="Market Research Banner"
+            class="w-full h-auto object-cover rounded-lg"
+            loading="lazy"
+          >
+        </div>
+    </div> <!-- Removed 'mb-12' from here as section already has pt, and we want it to touch next section -->
+    
+
+
+    </section>
+    
+    
+    
+    
+  <!-- Quote Banner --> <!-- Removed mt-16 -->
+    <div class="bg-gradient-to-r from-pink-600 to-purple-600 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto text-center">
+            <blockquote class="text-white">
+                <p class="text-xl sm:text-2xl font-medium italic leading-relaxed">
+                    "The secret of success in business is preparation, research, and hard work. 
+                    <span class="block mt-4 font-bold text-white/90">Good fortune is what happens when opportunity meets preparation.</span>
+                </p>
+                <footer class="mt-6 text-white/80">
+                    <cite class="font-semibold not-italic">— Zig Ziglar</cite>
+                </footer>
+            </blockquote>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+                    Frequently Asked Questions
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400">
+                    Everything you need to know about the Market Research Hub
+                </p>
+            </div>
+            
+            <div class="space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item bg-gray-50 dark:bg-slate-800 rounded-xl overflow-hidden">
+                    <button class="w-full text-left p-6 flex justify-between items-center" onclick="toggleFAQ(1)" aria-expanded="false" aria-controls="content-1">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">What makes Market Research Hub different from other research tools?</h3>
+                        <i id="icon-1" data-lucide="chevron-down" class="w-6 h-6 text-pink-600 dark:text-pink-500 transform transition-transform"></i>
+                    </button>
+                    <div id="content-1" class="faq-content px-6 pb-6 text-gray-600 dark:text-gray-400" role="region" aria-labelledby="faq-item-1-button">
+                        <p>
+                            Market Research Hub provides an all-in-one platform that combines market investigation, trend analysis, competitive intelligence, and product validation in a single dashboard. Unlike fragmented tools, our solution offers a structured 8-week research process with integrated templates and guided workflows that help both beginners and experts conduct comprehensive market research efficiently.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="faq-item bg-gray-50 dark:bg-slate-800 rounded-xl overflow-hidden">
+                    <button class="w-full text-left p-6 flex justify-between items-center" onclick="toggleFAQ(2)" aria-expanded="false" aria-controls="content-2">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">How long does it take to see results?</h3>
+                        <i id="icon-2" data-lucide="chevron-down" class="w-6 h-6 text-pink-600 dark:text-pink-500 transform transition-transform"></i>
+                    </button>
+                    <div id="content-2" class="faq-content px-6 pb-6 text-gray-600 dark:text-gray-400" role="region" aria-labelledby="faq-item-2-button">
+                        <p>
+                            Most users see valuable insights within the first week of using our platform. Our structured approach guides you through essential research phases, with many customers completing comprehensive market analysis within 4-6 weeks. The timeline varies based on your industry complexity and research goals, but our dashboard significantly accelerates the process compared to traditional methods.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="faq-item bg-gray-50 dark:bg-slate-800 rounded-xl overflow-hidden">
+                    <button class="w-full text-left p-6 flex justify-between items-center" onclick="toggleFAQ(3)" aria-expanded="false" aria-controls="content-3">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">Do I need any special training to use this platform?</h3>
+                         <i id="icon-3" data-lucide="chevron-down" class="w-6 h-6 text-pink-600 dark:text-pink-500 transform transition-transform"></i>
+                    </button>
+                    <div id="content-3" class="faq-content px-6 pb-6 text-gray-600 dark:text-gray-400" role="region" aria-labelledby="faq-item-3-button">
+                        <p>
+                            No special training is required. Market Research Hub is designed with an intuitive interface and guided workflows that make complex research accessible to everyone. We provide comprehensive onboarding resources, video tutorials, and a knowledge base to help you get started. Additionally, our customer support team is available to answer any questions you may have.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="faq-item bg-gray-50 dark:bg-slate-800 rounded-xl overflow-hidden">
+                    <button class="w-full text-left p-6 flex justify-between items-center" onclick="toggleFAQ(4)" aria-expanded="false" aria-controls="content-4">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">Can I integrate the research with other tools?</h3>
+                        <i id="icon-4" data-lucide="chevron-down" class="w-6 h-6 text-pink-600 dark:text-pink-500 transform transition-transform"></i>
+                    </button>
+                    <div id="content-4" class="faq-content px-6 pb-6 text-gray-600 dark:text-gray-400" role="region" aria-labelledby="faq-item-4-button">
+                        <p>
+                            Yes, Market Research Hub offers integrations with popular tools including Google Analytics, SEMrush, Ahrefs, Notion, Google Sheets, and more. You can export your research findings in multiple formats (PDF, CSV, Excel) or connect via our API for custom integrations. Our platform is designed to fit seamlessly into your existing workflow.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section id="pricing" class="py-20 bg-gradient-to-br from-pink-50 to-purple-50 dark:from-slate-800 dark:to-pink-900/10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+                Ready to Transform Your Market Research?
+            </h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-10">
+                Join thousands of successful businesses that use Market Research Hub to make data-driven decisions and accelerate growth.
+            </p>
+            
+            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 inline-block max-w-lg w-full">
+                <div class="mb-8">
+                    <div class="text-5xl font-bold text-pink-600 dark:text-pink-500 mb-2">$97</div>
+                    <div class="text-gray-600 dark:text-gray-400">one-time payment <span class="ml-1 text-xs bg-pink-600 text-white dark:bg-pink-500 dark:text-gray-900 font-semibold px-2 py-0.5 rounded-md align-middle">LIFETIME DEAL</span></div>
+                </div>
+                
+                <ul class="space-y-4 mb-10 text-left text-gray-700 dark:text-gray-300">
+                    <li class="flex items-start">
+                        <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 dark:text-green-400 mr-3 mt-0.5 flex-shrink-0"></i>
+                        <span>Full access to all research tools</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 dark:text-green-400 mr-3 mt-0.5 flex-shrink-0"></i>
+                        <span>Structured 8-week research process</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 dark:text-green-400 mr-3 mt-0.5 flex-shrink-0"></i>
+                        <span>Notion research templates</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 dark:text-green-400 mr-3 mt-0.5 flex-shrink-0"></i>
+                        <span>Priority customer support</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-lucide="check-circle-2" class="w-6 h-6 text-green-500 dark:text-green-400 mr-3 mt-0.5 flex-shrink-0"></i>
+                        <span>Lifetime updates</span>
+                    </li>
+                </ul>
+                
+                <a href="#" class="cta-button text-white font-bold py-4 px-8 rounded-full text-lg inline-block w-full">
+                    Get Instant Access
+                </a>
+                
+                <div class="mt-6 text-gray-500 dark:text-gray-400 text-sm">
+                    30-day money-back guarantee • Secure payment
+                </div>
+                <div class="flex justify-center items-center space-x-3 mt-4 text-gray-500 dark:text-gray-400">
+                    <span class="text-xs font-medium">Pay with:</span>
+                    <i data-lucide="credit-card" class="w-6 h-6" aria-label="Credit Card"></i>
+                    <i data-lucide="landmark" class="w-6 h-6" aria-label="Bank Transfer"></i>
+                    <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="h-5 w-auto fill-current" aria-label="Paypal"><title>PayPal</title><path d="M7.076 21.337H2.478L.002 3.048h5.153l1.22 10.057c.01.07.028.14.053.218.036.107.078.216.132.326.136.273.304.515.524.718.22.198.48.356.79.467.31.102.65.157 1.023.157.838 0 1.57-.168 2.19-.506.62-.337 1.085-.803 1.395-1.39.186-.35.29-.72.31-1.104.01-.102.015-.203.015-.304l-.69-4.833-.173-1.221L12.79.001H7.31l-.014 2.153.008.004c.004.004.006.008.008.012l.003.004L7.076 21.337zm16.924-10.05c0-.12-.016-.23-.04-.33-.023-.1-.053-.193-.09-.28-.037-.088-.08-.17-.132-.248-.052-.077-.107-.145-.167-.203-.06-.058-.124-.105-.192-.143a1.92 1.92 0 0 0-.226-.088c-.084-.023-.17-.038-.258-.045a2.536 2.536 0 0 0-.29-.015h-2.45l-.71 5.087c-.07.477-.135.858-.196 1.142-.06.284-.117.498-.17.642-.053.145-.1.246-.136.304-.037.058-.063.088-.08.088-.096 0-.177-.03-.243-.09-.065-.06-.117-.145-.152-.25-.036-.108-.058-.23-.062-.36l.662-4.666.15-1.075.158-1.127L19.048 3.05H13.91l-1.36 9.653c0 .06.002.115.007.165a.69.69 0 0 1 .01.12c.003.04.008.077.015.11.008.033.018.06.03.082.012.023.028.04.048.052.02.013.043.02.068.02.028 0 .05-.004.068-.01.018-.008.034-.017.048-.03a.29.29 0 0 1 .046-.04c.014-.017.026-.037.035-.06.008-.023.015-.05.018-.08a.987.987 0 0 1 .028-.152l.74-5.23H22.19c.113 0 .21.003.29.01.08.004.15.013.212.023.064.01.117.02.162.03s.08.02.106.03c.026.01.046.02.06.028.015.01.023.015.023.015.234.08.43.203.587.368.157.165.27.36.34.584.07.225.106.464.106.718 0 .2-.023.38-.07.54-.046.16-.11.306-.19.435-.08.13-.174.24-.282.33-.108.09-.228.16-.36.21-.132.05-.27.08-.412.09-.142.01-.28.015-.412.015h-1.052l.412 2.923c.036.265.078.503.126.715.048.212.11.404.187.575.078.17.174.315.29.432.115.118.248.21.398.275.15.065.314.1.49.1.13 0 .248-.012.352-.037s.196-.06.276-.102c.08-.044.15-.095.212-.153.062-.058.117-.126.162-.204l.06-.102.324-2.298c.003-.024.01-.05.02-.08.008-.03.02-.06.03-.09.015-.03.03-.055.044-.075.016-.02.03-.037.042-.05.014-.013.028-.02.042-.023.014-.004.028-.004.042-.004h2.526Z"/></svg>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-900 text-gray-400 dark:bg-black dark:text-gray-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex justify-center mb-6">
+                    <div class="w-12 h-12 bg-pink-600 dark:bg-pink-500 rounded-lg flex items-center justify-center">
+                        <i data-lucide="search-check" class="w-6 h-6 text-white"></i>
+                    </div>
+                </div>
+                
+                <p class="text-lg mb-6 text-gray-300 dark:text-gray-400">
+                    Transform your business with data-driven market insights
+                </p>
+                
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="#" class="text-gray-400 hover:text-white dark:hover:text-pink-400" aria-label="Facebook">
+                        <i data-lucide="facebook" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white dark:hover:text-pink-400" aria-label="Twitter">
+                        <i data-lucide="twitter" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white dark:hover:text-pink-400" aria-label="Linkedin">
+                         <i data-lucide="linkedin" class="w-6 h-6"></i>
+                    </a>
+                </div>
+                
+                <div class="text-sm">
+                    <p class="mb-4">
+                        Developed with 💖 by Bebell Digital Solutions.<br>
+                        Copyright © 2024 • All rights reserved
+                    </p>
+                    <div class="space-x-4">
+                        <a href="#" class="hover:text-white dark:hover:text-pink-400">Privacy Policy</a>
+                        <a href="#" class="hover:text-white dark:hover:text-pink-400">Terms of Service</a>
+                        <a href="#" class="hover:text-white dark:hover:text-pink-400">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTopBtn" aria-label="Back to top" title="Back to top"
+            class="fixed bottom-5 right-5 cta-button text-white p-3 rounded-full shadow-lg opacity-0 invisible z-50">
+        <i data-lucide="arrow-up" class="w-6 h-6"></i>
+    </button>
+    
+    <script>
+        function toggleFAQ(faqNumber) {
+            const content = document.getElementById(`content-${faqNumber}`);
+            const icon = document.getElementById(`icon-${faqNumber}`);
+            const button = content.previousElementSibling; 
+            
+            const isActive = content.classList.toggle('active');
+            button.setAttribute('aria-expanded', isActive.toString());
+            
+            if (isActive) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+        
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const originalText = obj.textContent;
+            const targetValue = parseInt(String(end).replace(/[^0-9]/g, '')); 
+            const suffix = String(end).replace(/[0-9]/g, '');
+
+            if (isNaN(targetValue)) {
+                 obj.textContent = originalText;
+                 return;
+            }
+
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.textContent = Math.floor(progress * (targetValue - start) + start) + suffix;
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    obj.textContent = targetValue + suffix; 
+                }
+            };
+            obj.textContent = start + suffix; 
+            window.requestAnimationFrame(step);
+        }
+
+        const statsToAnimate = [
+            { id: 'countUpTools', endValueText: '22+', duration: 1500 },
+            { id: 'countUpPhases', endValueText: '5', duration: 1500 },
+            { id: 'countUpSuccess', endValueText: '98%', duration: 1500 }
+        ];
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statConfig = statsToAnimate.find(s => s.id === entry.target.id);
+                    if (statConfig && !entry.target.dataset.animated) {
+                        animateValue(entry.target, 0, statConfig.endValueText, statConfig.duration);
+                        entry.target.dataset.animated = 'true';
+                        observer.unobserve(entry.target); 
+                    }
+                }
+            });
+        };
+        
+        const countObserver = new IntersectionObserver(observerCallback, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize first FAQ as open
+            if (document.getElementById('content-1')) {
+                 toggleFAQ(1);
+            }
+
+            // Init Number Counting
+            statsToAnimate.forEach(stat => {
+                const el = document.getElementById(stat.id);
+                if (el) {
+                    if (!stat.endValueText) {
+                         stat.endValueText = el.textContent;
+                    }
+                    countObserver.observe(el);
+                }
+            });
+
+            // Back to Top Button
+            const backToTopButton = document.getElementById('backToTopBtn');
+            if (backToTopButton) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        backToTopButton.classList.remove('opacity-0', 'invisible');
+                        backToTopButton.classList.add('opacity-100', 'visible');
+                    } else {
+                        backToTopButton.classList.remove('opacity-100', 'visible');
+                        backToTopButton.classList.add('opacity-0', 'invisible');
+                    }
+                });
+                backToTopButton.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            // Theme Toggle Logic
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+            const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+            function updateThemeIcons(isDark) {
+                if (isDark) {
+                    themeToggleDarkIcon.classList.remove('hidden');
+                    themeToggleLightIcon.classList.add('hidden');
+                } else {
+                    themeToggleDarkIcon.classList.add('hidden');
+                    themeToggleLightIcon.classList.remove('hidden');
+                }
+            }
+            
+            function applyTheme(isDark) {
+                if (isDark) {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                }
+                updateThemeIcons(isDark);
+                 if (typeof lucide !== 'undefined') { // Re-render lucide icons if theme changes visibility
+                    lucide.createIcons();
+                }
+            }
+
+            // Set initial icon state based on class set by the inline script in <head>
+            updateThemeIcons(document.documentElement.classList.contains('dark'));
+
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', () => {
+                    applyTheme(!document.documentElement.classList.contains('dark'));
+                });
+            }
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+                if (!localStorage.getItem('theme')) { // Only if no user preference is set
+                    applyTheme(e.matches);
+                }
+            });
+
+
+            // Initialize Lucide icons (this call should cover all icons including theme toggle)
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                console.warn('Lucide icons not loaded.');
+            }
+        });
+    </script>
+    <script type="module" src="./index.tsx" defer></script>
+</body>
+</html>
