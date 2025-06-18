@@ -288,18 +288,20 @@
             <div class="flex justify-between items-center h-16">
                 
                 
-                <!-- Logo -->
-                 <div class="flex-shrink-0 flex items-center">
-                <!-- Light mode logo (visible by default) -->
-                <img src="https://bucket.mlcdn.com/a/3336/3336910/images/77b4ddd5286b40d39dcf005201ac0ae3852b5425.png" 
-                     alt="Market Research Hub Logo" 
-                     class="h-8 block dark:hidden">
-                
-                <!-- Dark mode logo (hidden by default, shown in dark mode) -->
-                <img src="https://bucket.mlcdn.com/a/3336/3336910/images/b3eda45b2e78a6c25c845210560818d5288a8784.png" 
-                     alt="Market Research Hub Logo" 
-                     class="h-8 hidden dark:block">
-            </div>
+              <!-- Logo -->
+<div class="flex-shrink-0 flex items-center">
+    <!-- Light mode logo -->
+    <div class="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-600 rounded-lg flex items-center justify-center dark:hidden">
+        <i data-lucide="search-check" class="w-6 h-6 text-white"></i>
+    </div>
+    
+    <!-- Dark mode logo (slightly darker gradient) -->
+    <div class="w-10 h-10 bg-gradient-to-br from-pink-600 to-purple-700 rounded-lg flex items-center justify-center hidden dark:flex">
+        <i data-lucide="search-check" class="w-6 h-6 text-white"></i>
+    </div>
+    
+    <span class="ml-3 text-xl font-semibold text-gray-800 dark:text-white">Market Research Hub 🎯</span>
+</div>
                 
                 
                 
@@ -307,7 +309,7 @@
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center space-x-8">
                     <a href="#features" class="text-gray-700 hover:text-pink-600 dark:text-gray-300 dark:hover:text-pink-500 font-medium">Features</a>
-                    <a href="#Demo" class="text-gray-700 hover:text-pink-600 dark:text-gray-300 dark:hover:text-pink-500 font-medium">Demo</a>
+                    <a href="#Demo" class="text-gray-700 hover:text-pink-600 dark:text-gray-300 dark:hover:text-pink-500 font-medium">How it works</a>
                     
                     <a href="#process" class="text-gray-700 hover:text-pink-600 dark:text-gray-300 dark:hover:text-pink-500 font-medium">Process</a>
                     <a href="#faq" class="text-gray-700 hover:text-pink-600 dark:text-gray-300 dark:hover:text-pink-500 font-medium">FAQ</a>
