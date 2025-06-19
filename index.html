@@ -2,9 +2,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Required Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Market Research Hub | Complete Guide to Market Success</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+       <!-- Primary Meta Tags -->
+    <title>Market Research Hub 🎯 | AI-Powered Consumer Insights Platform</title>
+    <meta name="description" content="Get real-time market intelligence, consumer behavior analytics, and competitive benchmarking with our AI-driven research platform. Start with free industry reports.">
+    <meta name="keywords" content="market research, consumer insights, competitive analysis, industry trends, business intelligence, AI analytics">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#3a86ff">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://marketresearchhub.com/">
+    <meta property="og:title" content="Market Research Hub | AI-Powered Consumer Insights">
+    <meta property="og:description" content="Get real-time market intelligence and consumer behavior analytics with our AI-driven platform.">
+    <meta property="og:image" content="https://marketresearchhub.com/images/social-share-1200x630.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@ResearchHub">
+    <meta name="twitter:title" content="Market Research Hub | AI-Powered Consumer Insights">
+    <meta name="twitter:description" content="Real-time market intelligence and consumer behavior analytics platform.">
+    <meta name="twitter:image" content="https://marketresearchhub.com/images/social-share-1200x630.jpg">
+
+
+
     
     
     <!-- Fonts -->
@@ -53,6 +88,8 @@
             --pink-600: #DF1783;
             --pink-700: #C1146E;
             --purple-600: #7C3AED;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
         }
 
 
@@ -62,18 +99,44 @@
     -webkit-user-drag: none;
 }
 
-
-        
-        
+   
         html {
             scroll-behavior: smooth;
         }
+
+        
 
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(to bottom, #ffffff, #f9fafb);
             color: #1f2937;
         }
+
+        .custom-image-widget {
+            position: fixed !important;
+            top: 50px !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            right: 0px;
+            z-index: 999;
+        }
+        
+        .custom-image {
+            width: 70px;
+            height: auto;
+            transition: transform 0.2s;
+        }
+        
+        .custom-image-widget:hover .custom-image {
+            transform: scale(1.05);
+        }
+        
+        .custom-image-widget:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        
         .dark body {
             background: linear-gradient(to bottom, #111827, #0f172a); /* Dark gradient */
             color: #d1d5db; /* Default dark text color */
@@ -289,6 +352,18 @@
 </script>
 </head>
 
+
+ <div class="custom-image-widget" style="position: relative; display: inline-block;"> <!-- ADD THESE STYLES -->
+    <a href="https://elnegocio-digital.translate.goog/?_x_tr_sl=auto&_x_tr_tl=en&_x_tr_hl=en-US&_x_tr_pto=wapp">
+        <img class="custom-image" 
+             src="https://bucket.mlcdn.com/a/3336/3336910/images/138f14304ea21715dfae64ae5fe1d71b08c2d451.png" 
+             alt="English Translation"
+             style="display: block;"> <!-- Ensure image is block-level -->
+    </a>
+
+</div>
+
+    
 
 <body class="bg-white dark:bg-slate-900 text-gray-800 dark:text-white">
 
@@ -1080,10 +1155,19 @@
         const countObserver = new IntersectionObserver(observerCallback, observerOptions);
 
         document.addEventListener('DOMContentLoaded', function() {
+            
+            
+            
             // Initialize first FAQ as open
             if (document.getElementById('content-1')) {
                  toggleFAQ(1);
             }
+
+
+
+
+
+            
 
             // Init Number Counting
             statsToAnimate.forEach(stat => {
@@ -1095,6 +1179,12 @@
                     countObserver.observe(el);
                 }
             });
+
+
+
+
+
+            
 
             // Back to Top Button
             const backToTopButton = document.getElementById('backToTopBtn');
@@ -1113,6 +1203,12 @@
                     window.scrollTo({ top: 0, behavior: 'smooth' });
                 });
             }
+
+
+
+
+
+            
 
             // Theme Toggle Logic
             const themeToggleBtn = document.getElementById('theme-toggle');
