@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -455,9 +454,10 @@
             
             <div class="mt-16 max-w-5xl mx-auto">
     <div class="no-copy bg-white rounded-[28px] shadow-xl overflow-hidden"> <!-- Outer container -->
-        <div class="p-1 bg-gradient-to-r from-pink-600 to-purple-600 rounded-[28px]"> <!-- Gradient border wrapper -->
+        <div class="p-2 bg-gradient-to-r from-pink-600 to-purple-600 rounded-[28px]"> <!-- Gradient border wrapper -->
             <div class="bg-white p-2 rounded-[24px] overflow-hidden"> <!-- Inner white container -->
-                <img src="https://bucket.mlcdn.com/a/3336/3336910/images/310957494d0ee510f1b5cd581fa0979529183511.gif" 
+                <img id="hero-dashboard-image" 
+                     src="https://bucket.mlcdn.com/a/3336/3336910/images/fa0c3659064e85ffa356123f3774339ace7d41a4.gif" 
                      alt="Market Research Hub Dashboard" 
                      class="w-full h-auto rounded-[20px]"> <!-- Image --></div>
                     </div>
@@ -1173,6 +1173,24 @@
             }
 
 
+            // Hero Image Hover Effect
+            const heroImage = document.getElementById('hero-dashboard-image');
+            if (heroImage) {
+                const defaultImageUrl = 'https://bucket.mlcdn.com/a/3336/3336910/images/5ebed4206cf0e7d43941187f01760f9af2620fb8.png';
+                const hoverImageUrl = 'https://bucket.mlcdn.com/a/3336/3336910/images/5ebed4206cf0e7d43941187f01760f9af2620fb8.png';
+
+                // Preload the hover image
+                const imgPreload = new Image();
+                imgPreload.src = hoverImageUrl;
+
+                heroImage.addEventListener('mouseenter', () => {
+                    heroImage.src = hoverImageUrl;
+                });
+
+                heroImage.addEventListener('mouseleave', () => {
+                    heroImage.src = defaultImageUrl;
+                });
+            }
 
 
 
@@ -1275,3 +1293,4 @@
     <script type="module" src="./index.tsx" defer></script>
 </body>
 </html>
+
